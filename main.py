@@ -89,23 +89,7 @@ wb = openpyxl.load_workbook('menu.xlsx')
 sheet = wb['Φύλλο1'] 
 
 target_date = datetime.now()  # datetime of the current day
-"""
-#search the date
-def get_row():
-    for row in sheet.iter_rows():
-        for cell in row:
-            if isinstance(cell.value, datetime):  
-                if cell.value.date() == target_date.date():  
-                    #print(f"Date {target_date.date()} found in cell {cell.coordinate}")
-                    cell_coordinate = cell.coordinate
-                    return cell_coordinate
 
-x= get_row()
-print(x)
-
-x = x[1]
-print(x) # χρειαζομαστε το νουμερο της στηλης
-"""
 def get_row():
     for row in sheet.iter_rows():
         for cell in row:
@@ -115,7 +99,7 @@ def get_row():
                     return cell.coordinate
 
 x = get_row()
-print(x)
+print("day on the calendar " + x)
 
 
 y = 0 
@@ -129,13 +113,8 @@ if x in week_3:
 if x in week_4:
     y = 71
 
-column_number = "A"+x[1]
-
-print(column_number)  
-
 
 count = 0
-
 
 for cell in sheet[x[0]][y:]:  
     if cell.value is not None :
