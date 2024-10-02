@@ -109,7 +109,7 @@ if x in week_1:
 if x in week_2:
     y = 26
 if x in week_3:
-    y = 47
+    y = 46
 if x in week_4:
     y = 71
 
@@ -117,14 +117,14 @@ if x in week_4:
 count = 0
 
 for cell in sheet[x[0]][y:]:  
-    if cell.value is not None :
+    if cell.value is not None:
         if not isinstance(cell.value, datetime):
             if count == 0:
-                print("Μεσημεριανο")
+                print("\n*** Μεσημεριανό ***")  # Lunch header
             if count == 3:
-                print("Δειπνο")                
-            print(cell.value+"\n")
+                print("\n*** Δείπνο ***")  # Dinner header                
+            
+            print(f"- {cell.value}")  # Print the menu item
             count += 1 
             if count == 6:
-                break
-        
+                break 
