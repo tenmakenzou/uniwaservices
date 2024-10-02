@@ -138,9 +138,12 @@ count = 0
 
 
 for cell in sheet[x[0]][y:]:  
-    if cell.value is not None:
-
+    if cell.value is not None :
         if not isinstance(cell.value, datetime):
+            if count == 0:
+                print("Μεσημεριανο")
+            if count == 3:
+                print("Δειπνο")                
             print(cell.value+"\n")
             count += 1 
             if count == 6:
