@@ -53,10 +53,8 @@ class MyLayout(BoxLayout):
         self.anchor_layout.clear_widgets()
         self.grid_layout = GridLayout(cols=1, spacing=0, size_hint=(1, 1))
 
-        self.label = Label(text=get_library(), text_size=(None, None), halign='center', valign='middle', size_hint=(1, 0.5))
+        self.label = Label(text=get_library()+"\n\n\n"+get_restauraunt(), text_size=(None, None), halign='center', valign='middle', size_hint=(1, 0.5))
         self.label.bind(size=self.label.setter('text_size'))
-        self.label2 = Label(text=get_restauraunt(), text_size=(None, None), halign='center', valign='middle', size_hint=(1, 0.5))
-        self.label2.bind(size=self.label.setter('text_size'))
 
         self.back_button = Button(text="Back", size_hint=(None, None), size=(200, 50))
         self.back_button.bind(on_press=self.reset_screen)
@@ -65,7 +63,6 @@ class MyLayout(BoxLayout):
         back_button_anchor.add_widget(self.back_button)
 
         self.grid_layout.add_widget(self.label)
-        self.grid_layout.add_widget(self.label2)
         self.grid_layout.add_widget(back_button_anchor)
         self.anchor_layout.add_widget(self.grid_layout)
 
