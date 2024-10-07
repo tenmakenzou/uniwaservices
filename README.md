@@ -1,12 +1,14 @@
-An application that displays  UNIWA'S services
 
-Those services include : Library-Dinner availability ,Current dinner schedule , Student services for example student's report .
+ENG :
+An mobile application (apk) that is made for  students of UNIWA
 
-
-
-Μια εφαρμογη κινητου η οποια εχει σχεδιαστει για τους φοιτητες παδα
-
-Η εφαρμογη εχει τις βασικες λειτουργειες που θα χρειαστει ενας φοιτητης : προγραμμα σιτισης - αν ειναι ανοιχτη η βιβλιοθηκη | σιτιση - Φοιτητολογιο | Eclass
+Those services include : Library-Dinner availability ,Current dinner menu , Student services for example student's report and e-class shortcuts.
 
 For any bugs report at ig : @
-Για οποιαδιποτε προβληματα : @
+
+GR : 
+Μια εφαρμογη κινητου η οποια εχει σχεδιαστει για τους φοιτητες ΠΑΔΑ
+
+Η εφαρμογη εχει τις βασικες λειτουργιες που θα χρειαστει ενας φοιτητης : [Προγραμμα σιτισης , Αν ειναι ανοιχτες υπηρεσιες του ΠΑΔΑ (Σιτιση - Βιβλιοθηκη) ,  Φοιτητολογιο και Eclass shortcuts]
+
+Για οποιαδηποτε προβληματα αναφερετε στο ig : @
