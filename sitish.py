@@ -106,7 +106,11 @@ def run():
             if cell.value is not None:
                 if not isinstance(cell.value, datetime):
                     if count == 0:
+                        
+                        result += "\n    Πρωινό   \n"  
+                        result += 'Γάλα φρέσκο ζεστό ή κρύο, Τσάι σε διάφορες γεύσεις, μαρμελάδες σε διάφορες γεύσεις, Μαργαρίνη, Μέλι, Φρυγανιές σίτου, Ψωμί, Κέικ-         Fresh milk hot or cold, Tea in various flavors, jams in various flavors, Margarine, Honey, Wheat toast, Bread, Cake\n'
                         result += "\n    Μεσημεριανό    \n"  
+                    
                     if count == 3:
                         result += "\n    Δείπνο    \n"  
                     
