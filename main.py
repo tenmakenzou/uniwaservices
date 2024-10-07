@@ -20,7 +20,8 @@ class MyLayout(BoxLayout):
     def __init__(self):
         super().__init__()
         self.anchor_layout = AnchorLayout()
-        self.buttons_layout = BoxLayout(orientation='vertical', size_hint=(None, None))
+        self.buttons_layout = BoxLayout(orientation='vertical', size_hint=(None, None), spacing=10)
+
 
         self.button = Button(text="Restauraunt Menu\nΠρογραμμα Σίτισης", size_hint=(None, None), size=(200, 50))
         self.button2 = Button(text="Library / Restauraunt opening\nΒιβλιοθήκη / Λέσχη ωράριο ", size_hint=(None, None), size=(200, 50))
