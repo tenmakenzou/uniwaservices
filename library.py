@@ -13,7 +13,7 @@ def get_library():
     elif (9.00 <= current_time <= 15.30) and (x == 'Friday') and (x != 'Saturday') and (x != 'Sunday'):
         return "Η Βιβλιοθήκη είναι ανοιχτή\nLibrary is open"
     else:
-        return "Η Βιβλιοθήκη είναι κλειστή\n|Library is closed"
+        return "Η Βιβλιοθήκη είναι κλειστή\nLibrary is closed"
 
 
 def get_restauraunt():
