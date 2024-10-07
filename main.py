@@ -4,15 +4,24 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.widget import Widget
 from sitish import *
 
 class MyLayout(BoxLayout):
     def __init__(self):
         super().__init__()
         self.anchor_layout = AnchorLayout()
+        self.buttons_layout = BoxLayout(orientation='vertical', size_hint=(None, None))
+
         self.button = Button(text="Menu sitishs", size_hint=(None, None), size=(200, 50))
+        self.button2 = Button(text="Services", size_hint=(None, None), size=(200, 50))
+
         self.button.bind(on_press=self.new_label)
-        self.anchor_layout.add_widget(self.button)
+        
+        self.buttons_layout.add_widget(self.button)
+        self.buttons_layout.add_widget(self.button2)
+
+        self.anchor_layout.add_widget(self.buttons_layout)
         self.add_widget(self.anchor_layout)
 
     def new_label(self, button):
@@ -32,7 +41,10 @@ class MyLayout(BoxLayout):
 
     def reset_screen(self, button):
         self.anchor_layout.clear_widgets()
-        self.anchor_layout.add_widget(self.button)
+        self.buttons_layout.clear_widgets()
+        self.buttons_layout.add_widget(self.button)
+        self.buttons_layout.add_widget(self.button2)
+        self.anchor_layout.add_widget(self.buttons_layout)
 
 class Services(App):
     def build(self):
