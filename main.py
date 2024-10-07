@@ -1,130 +1,43 @@
-import openpyxl
-from datetime import datetime
+from kivy.app import App 
+from kivy.uix.label import Label 
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.gridlayout import GridLayout
+from sitish import *
 
+class MyLayout(BoxLayout):
+    def __init__(self):
+        super().__init__()
+        self.anchor_layout = AnchorLayout()
+        self.button = Button(text="Menu sitishs", size_hint=(None, None), size=(200, 50))
+        self.button.bind(on_press=self.new_label)
+        self.anchor_layout.add_widget(self.button)
+        self.add_widget(self.anchor_layout)
 
-# c3 - i3
-# c6 - i6
-#week 1
+    def new_label(self, button):
+        self.anchor_layout.clear_widgets()
+        self.grid_layout = GridLayout(cols=1, spacing=0, size_hint=(1, 1))
+        self.label = Label(text=run(), text_size=(None, None), halign='center', valign='middle', size_hint=(1, 0.9))
+        self.label.bind(size=self.label.setter('text_size'))
+        self.back_button = Button(text="Back", size_hint=(None, None), size=(200, 50))
+        self.back_button.bind(on_press=self.reset_screen)
 
+        back_button_anchor = AnchorLayout(anchor_x='center', anchor_y='center', size_hint=(1, 0.1))
+        back_button_anchor.add_widget(self.back_button)
 
-#c26-i26
-#c29-i29
-#week 2
+        self.grid_layout.add_widget(self.label)
+        self.grid_layout.add_widget(back_button_anchor)
+        self.anchor_layout.add_widget(self.grid_layout)
 
-#c48-i48
-#c51-i51
-#week 3
+    def reset_screen(self, button):
+        self.anchor_layout.clear_widgets()
+        self.anchor_layout.add_widget(self.button)
 
-#c71-i71
-#c75-i75
+class Services(App):
+    def build(self):
+        return MyLayout()
 
-#week4
+if __name__ == "__main__":
+    Services().run()
 
-week_1 = [
-    'C3', 'D3', 'E3', 
-    'F3', 'G3', 'H3', 
-    'I3',
-    'C4', 'D4', 'E4', 
-    'F4', 'G4', 'H4', 
-    'I4',
-    'C5', 'D5', 'E5', 
-    'F5', 'G5', 'H5', 
-    'I5',
-    'C6', 'D6', 'E6', 
-    'F6', 'G6', 'H6', 
-    'I6'
-]
-
-week_2 = [
-    'C26', 'D26', 'E26', 
-    'F26', 'G26', 'H26', 
-    'I26',
-    'C27', 'D27', 'E27', 
-    'F27', 'G27', 'H27', 
-    'I27',
-    'C28', 'D28', 'E28', 
-    'F28', 'G28', 'H28', 
-    'I28',
-    'C29', 'D29', 'E29', 
-    'F29', 'G29', 'H29', 
-    'I29'
-]
-
-week_3 = [
-    'C48', 'D48', 'E48', 
-    'F48', 'G48', 'H48', 
-    'I48',
-    'C49', 'D49', 'E49', 
-    'F49', 'G49', 'H49', 
-    'I49',
-    'C50', 'D50', 'E50', 
-    'F50', 'G50', 'H50', 
-    'I50',
-    'C51', 'D51', 'E51', 
-    'F51', 'G51', 'H51', 
-    'I51'
-]
-
-week_4 = [
-    'C71', 'D71', 'E71', 
-    'F71', 'G71', 'H71', 
-    'I71',
-    'C72', 'D72', 'E72', 
-    'F72', 'G72', 'H72', 
-    'I72',
-    'C73', 'D73', 'E73', 
-    'F73', 'G73', 'H73', 
-    'I73',
-    'C74', 'D74', 'E74', 
-    'F74', 'G74', 'H74', 
-    'I74',
-    'C75', 'D75', 'E75', 
-    'F75', 'G75', 'H75', 
-    'I75'
-]
-
-
-
-wb = openpyxl.load_workbook('menu.xlsx')
-sheet = wb['Φύλλο1'] 
-
-target_date = datetime.now()  # datetime of the current day
-
-def get_row():
-    for row in sheet.iter_rows():
-        for cell in row:
-            if isinstance(cell.value, datetime):  
-                if cell.value.date() == target_date.date():  
-                 
-                    return cell.coordinate
-
-x = get_row()
-print("day on the calendar " + x)
-
-
-y = 0 
-
-if x in week_1:
-    y = 2
-if x in week_2:
-    y = 26
-if x in week_3:
-    y = 46
-if x in week_4:
-    y = 71
-
-
-count = 0
-
-for cell in sheet[x[0]][y:]:  
-    if cell.value is not None:
-        if not isinstance(cell.value, datetime):
-            if count == 0:
-                print("\n*** Μεσημεριανό ***")  # Lunch header
-            if count == 3:
-                print("\n*** Δείπνο ***")  # Dinner header                
-            
-            print(f"- {cell.value}")  # Print the menu item
-            count += 1 
-            if count == 6:
-                break 
