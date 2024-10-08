@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+kivy = "*"
+openpyxl = "*"
+cython = "*"
+
+[dev-packages]
+python-for-android = "*"
+buildozer = "*"
+
+[requires]
+python_version = "3.12"
