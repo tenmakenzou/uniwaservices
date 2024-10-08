@@ -1,0 +1,10 @@
+libtool
+automake
+autoconf
+libltdl
+libssl
+ncurses
+openjdk
+SDL2 (mixed,image,ttf)
+libjpeg (turbo?)
+portmidi
